@@ -31,11 +31,10 @@ app.get('/todos', (req, res) => {
   });
 });
 
-//
 app.get('/todos/:id', (req, res) => {
   var id = req.params.id
 
-  if (!ObjectID.isValid(id)){
+  if (!ObjectID.isValid(id)) {
     return res.sendStatus(404).send();
   }
 
@@ -49,6 +48,23 @@ app.get('/todos/:id', (req, res) => {
     res.sendStatus(400).send();
   });
 });
+
+app.delete('/todos/:id', (req, res) => {
+  var id = req.params.id
+
+  if (!ObjectID.isValid(id)) {
+    return res.sendStatus(404).send();
+  }
+
+  Todo.findOneAndDelete(id).then((todo) => {
+    if (!todo) {
+      return res.sendStatus(404).send
+    }
+    res.send({todo});
+  }).catch((e) => {
+    res.sendStatus(400).send();
+    });
+  });
 
 app.listen(port, () => {
   console.log(`Started on port ${port}`);
