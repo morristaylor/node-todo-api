@@ -4,3 +4,4 @@
 #### I'm building a Todo App API. My past work for this course [started here](https://github.com/morristaylor/complete-node). I moved this section of the course to its own repo for Heroku deployment.
 
 ##### 2018-11-14: Deployed to Heroku
+##### 2018-11-16: Set up test, dev, and production environments and finished the course section 
